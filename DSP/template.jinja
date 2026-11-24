@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <!-- css from http://bettermotherfuckingwebsite.com/ excuse my language -->
+    <style>
+        body{margin:40px
+        auto;max-width:650px;line-height:1.6;font-size:18px;color:#444;padding:0
+        10px}h1,h2,h3{line-height:1.2}
+    </style>
+</head>
+<html>
+    <body>
+        {% for section, paragraphs in sections.items() %}    
+        <h2>{{section}}</h2>
+            {% for paragraph in paragraphs %}
+                {% if paragraph is string %}
+                    <p>{{paragraph}}</p>
+                {% else %}
+                    <ul>
+                    {% for bullet in paragraph %}    
+                        <li>{{bullet}}</li>
+                    {% endfor %}
+                    </ul>                
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>
